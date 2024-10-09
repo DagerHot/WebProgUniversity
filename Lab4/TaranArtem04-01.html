@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaranArtemLab04-01</title>
+    <style>
+        body {
+            background-image: url('../image/fon.jpg'); /* Задайте шлях до фону */
+            color: #FFFAFA; /* Колір тексту */
+            text-align: center; /* Вирівнювання тексту по центру */
+            margin: 0; /* Відступи */
+        }
+        .marquee {
+            width: 100%; /* Ширина у відсотках */
+            height: 50px; /* Висота полоси */
+            background-color: #a057f3; /* Колір полоси */
+            overflow: hidden; /* Сховати текст, що виходить за межі */
+            position: relative; /* Визначає позицію для анімації */
+            display: flex; /* Використовуємо flexbox для центрування */
+            align-items: center; /* Центрування по вертикалі */
+        }
+        .marquee-content {
+            color: #8b008b; /* Колір тексту */
+            font-family: Verdana, sans-serif; /* Тип шрифту */
+            font-size: 24px; /* Розмір шрифту */
+            white-space: nowrap; /* Не переносити текст на новий рядок */
+            animation: marquee 10s linear infinite; /* Анімація */
+        }
+        @keyframes marquee {
+            0% { transform: translateX(600%); }
+            100% { transform: translateX(-600%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="marquee">
+        <div class="marquee-content">
+            ТОЙ ЩО БІЖИТЬ ПО СТОРІНЦІ
+        </div>
+    </div>
+</body>
+</html>

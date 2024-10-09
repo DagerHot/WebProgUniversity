@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Animation</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .line {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+        }
+
+        .line-1 {
+            background-color: #1E90FF; /* Синій */
+        }
+
+        .line-2 {
+            background-color: #32CD32; /* Зелений */
+        }
+
+        .line-3 {
+            background-color: #FF4500; /* Оранжевий */
+        }
+
+        .line-4 {
+            background-color: #FFD700; /* Золотий */
+        }
+
+        .line-5 {
+            background-color: #6A5ACD; /* Синій фіолетовий */
+        }
+
+        /* Завдання 1: Коливання зображень */
+        .moving-image {
+            position: absolute;
+            height: 50%; /* Висота зображення 50% від смужки */
+            width: auto; /* Автоматична ширина для збереження пропорцій */
+            animation: oscillate 2s ease-in-out infinite;
+        }
+
+        @keyframes oscillate {
+            0%, 100% {
+                top: 25%; /* Початок у верхній частині смужки */
+            }
+            50% {
+                top: 50%; /* Зниження до середини смужки */
+            }
+        }
+
+        /* Завдання 2: Рух зображень від низу до верху */
+        .image-move-up {
+            position: absolute;
+            height: 50%; /* Висота зображення 50% від смужки */
+            width: auto; /* Автоматична ширина для збереження пропорцій */
+            animation: moveUp 4s linear infinite;
+            bottom: -50%; /* Початок знизу смужки */
+        }
+
+        @keyframes moveUp {
+            0% { bottom: -50%; } /* Початок знизу смужки */
+            100% { bottom: 100%; } /* Завершення вгорі смужки */
+        }
+
+        /* Завдання 3: Зображення "падають" на нижню грань */
+        .falling-image {
+            position: absolute;
+            height: 50%; /* Висота зображення 50% від смужки */
+            width: auto; /* Автоматична ширина для збереження пропорцій */
+            animation: fall 4s forwards;
+            animation-fill-mode: forwards; /* Зберегти останній стан анімації */
+            top: -50%; /* Початок вище смужки */
+        }
+
+        @keyframes fall {
+            0% {
+                top: -50%; /* Початок вище смужки */
+            }
+            100% {
+                top: 50%; /* Завершення на нижній грані смужки */
+            }
+        }
+
+        /* Тексти з запізненням */
+        .text-moving-1 {
+            position: absolute;
+            animation: moveDown 5s linear infinite; /* 4-а смужка: 5 секунд */
+        }
+
+        .text-moving-2 {
+            position: absolute;
+            animation: moveDown 6.25s linear infinite; /* 5-а смужка: 80% від 5 секунд = 4 * 0.8 = 6.25 секунд */
+        }
+
+        @keyframes moveDown {
+            0% {
+                top: -50%; /* Початок анімації вище смужки */
+            }
+            100% {
+                top: 100%; /* Завершення анімації внизу смужки */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Завдання 1: Коливання зображень -->
+    <div class="line line-1">
+        <img src="image04-05-1.jpg" alt="Image 1" class="moving-image">
+    </div>
+
+    <!-- Завдання 2: Рух зображень від низу до верху -->
+    <div class="line line-2">
+        <img src="image04-05-1.jpg" alt="Image 1" class="image-move-up" style="animation-delay: 0s;">
+        <img src="image04-05-2.jpg" alt="Image 2" class="image-move-up" style="animation-delay: 1s;">
+        <img src="image04-05-3.jpg" alt="Image 3" class="image-move-up" style="animation-delay: 2s;">
+        <img src="image04-05-4.jpg" alt="Image 4" class="image-move-up" style="animation-delay: 3s;">
+    </div>
+
+    <!-- Завдання 3: Зображення "падають" на нижню грань -->
+    <div class="line line-3">
+        <img src="image04-05-1.jpg" alt="Image 1" class="falling-image" style="animation-delay: 0s;">
+        <img src="image04-05-2.jpg" alt="Image 2" class="falling-image" style="animation-delay: 1s;">
+        <img src="image04-05-3.jpg" alt="Image 3" class="falling-image" style="animation-delay: 2s;">
+        <img src="image04-05-4.jpg" alt="Image 4" class="falling-image" style="animation-delay: 3s;">
+    </div>
+
+    <!-- Завдання 4: Текст з запізненням -->
+    <div class="line line-4">
+        <p class="text-moving-1">Без запізнення</p>
+    </div>
+    <div class="line line-5">
+        <p class="text-moving-2">Із запізненням<p>
+    </div>
+</body>
+</html>
