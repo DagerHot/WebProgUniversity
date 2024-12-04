@@ -1,0 +1,63 @@
+/* Загальний стиль для сторінки */
+body {
+    background-image: url('../images/background.jpg'); 
+    background-size: cover;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-style: italic; 
+    font-size: 18px; 
+}
+
+/* Абзаци */
+p {
+    text-align: justify;
+    text-indent: 20px; 
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+
+h1 {
+    font-weight: bold;
+    text-align: center;
+    color: darkblue;
+    font-style: normal;
+    margin-top: 20px;
+}
+
+/* Посилання */
+a:link {
+    color: green;
+    text-decoration: none;
+}
+
+a:active {
+    color: blue;
+    text-decoration: none;
+}
+
+a:visited {
+    color: darkblue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+/* Розташування зображень */
+img.left {
+    float: left;
+    margin: 10px;
+}
+
+img.right {
+    float: right;
+    margin: 10px;
+}
+
+img.center {
+    display: block;
+    margin: 20px auto;
+}
