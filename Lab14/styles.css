@@ -1,0 +1,73 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.main-container {
+  height: 100%;
+  padding: 0;
+}
+
+.block {
+  border: 1px solid #ccc;
+}
+
+.block1 {
+  background-color: #4f81be; /* Синій */
+  color: #fff;
+}
+
+.block2 {
+  background-color: #ffc001; /* Жовтий */
+  color: #000;
+}
+
+.block3 {
+  background-color: #c10001; /* Червоний */
+  color: #fff;
+}
+
+.h-50 {
+  height: 50%;
+}
+
+/* Адаптивність */
+
+/* ПК версія (≥1200px) */
+@media (min-width: 1200px) {
+  .col-xl-6 {
+      height: 100%;
+  }
+}
+
+/* Планшети (від 768px до <1200px) */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .block1 {
+      background-color: #ff6600; /* Помаранчевий */
+      color: #fff;
+  }
+  .block2 {
+      background-color: #0066ff; /* Синій */
+      color: #fff;
+  }
+  .block3 {
+      background-color: #00cc66; /* Зелений */
+      color: #000;
+  }
+}
+
+/* Мобільна версія (<768px) */
+@media (max-width: 767.98px) {
+  .block1 {
+      background-color: #800080; /* Фіолетовий */
+      color: #fff;
+  }
+  .block2 {
+      background-color: #ff69b4; /* Рожевий */
+      color: #fff;
+  }
+  .block3 {
+      background-color: #00ced1; /* Бірюзовий */
+      color: #000;
+  }
+}
