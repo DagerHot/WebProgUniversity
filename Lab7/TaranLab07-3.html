@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e8f5ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #f8fcff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff2e2e;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .btn{
+            padding: 7px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Анкета</h1>
+        <form>
+            <div class="mb-3">
+                <label for="lastName" class="form-label">Прізвище</label>
+                <input type="text" class="form-control" id="lastName" required>
+            </div>
+            <div class="mb-3">
+                <label for="firstName" class="form-label">Ім'я, по батькові</label>
+                <input type="text" class="form-control" id="firstName" required>
+            </div>
+            <div class="mb-3">
+                <label for="dob" class="form-label">Число і рік народження</label>
+                <input type="date" class="form-control" id="dob" required>
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Домашня адреса</label>
+                <input type="text" class="form-control" id="address" required>
+            </div>
+            <div class="mb-3">
+                <label for="workplace" class="form-label">Місце навчання (роботи)</label>
+                <input type="text" class="form-control" id="workplace" required>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Домашній (робочий) телефон</label>
+                <input type="tel" class="form-control" id="phone" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Область наукових інтересів</label>
+                <div class="row g-2">
+                    <div class="col-12">
+                        <input type="text" class="form-control" placeholder="1." required>
+                    </div>
+                    <div class="col-12">
+                        <input type="text" class="form-control" placeholder="2." required>
+                    </div>
+                    <div class="col-12">
+                        <input type="text" class="form-control" placeholder="3." required>
+                    </div>
+                    <div class="col-12">
+                        <input type="text" class="form-control" placeholder="4." required>
+                    </div>
+                    <div class="col-12">
+                        <input type="text" class="form-control" placeholder="5." required>
+                    </div>
+                    <div class="col-12">
+                        <input type="text" class="form-control" placeholder="6." required>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type="reset" class="btn btn-secondary">Відмінити введення</button>
+                <button type="submit" class="btn btn-primary">Надіслати дані та перейти до 2 етапу реєстрації</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

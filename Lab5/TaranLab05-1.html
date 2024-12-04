@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Розклад занять груп</title>
+    <style>
+        body {
+            background-color: #90EE90;
+            font-family: Arial, sans-serif;
+        }
+        .days-table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .days-table td {
+            text-align: center;
+            padding: 10px;
+            font-size: 24px;
+            color: red;
+        }
+        .schedule-title {
+            width: 75%;
+            margin: 0 auto;
+            text-align: center;
+            color: red;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .schedule-table {
+            width: 75%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        .schedule-table th, .schedule-table td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+        .day-title {
+            color: blue;
+            font-size: 20px;
+            font-family: Courier, monospace;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .placeholder {
+            height: 250px;
+        }
+        a {
+            color: red;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <table class="days-table">
+        <tr>
+            <td><a href="#ПН">Понеділок</a></td>
+            <td><a href="#ВТ">Вівторок</a></td>
+            <td><a href="#СР">Середа</a></td>
+            <td><a href="#ЧТ">Четвер</a></td>
+            <td><a href="#ПТ">П’ятниця</a></td>
+            <td><a href="#СБ">Субота</a></td>
+        </tr>
+    </table>
+
+    <div class="placeholder"></div>
+
+    <div class="schedule-title">Розклад занять груп</div>
+
+    <div class="day-title">
+        <a name="ПН">Понеділок</a>
+    </div>
+    <table class="schedule-table">
+        <tr>
+            <th>Час</th>
+            <th>Предмет</th>
+            <th>Аудиторія</th>
+            <th>Викладач</th>
+        </tr>
+        <tr>
+            <td>8:00 - 9:20</td>
+            <td>Математика</td>
+            <td>101</td>
+            <td>Іваненко І.І.</td>
+        </tr>
+        <tr>
+            <td>9:30 - 10:50</td>
+            <td>Фізика</td>
+            <td>102</td>
+            <td>Петров П.П.</td>
+        </tr>
+        <tr>
+            <td>11:00 - 12:20</td>
+            <td>Програмування</td>
+            <td>205</td>
+            <td>Сидоренко С.С.</td>
+        </tr>
+    </table>
+
+    <div class="day-title">
+        <a name="ВТ">Вівторок</a>
+    </div>
+    <table class="schedule-table">
+        <tr>
+            <th>Час</th>
+            <th>Предмет</th>
+            <th>Аудиторія</th>
+            <th>Викладач</th>
+        </tr>
+        <tr>
+            <td>8:00 - 9:20</td>
+            <td>Хімія</td>
+            <td>103</td>
+            <td>Коваленко К.К.</td>
+        </tr>
+        <tr>
+            <td>9:30 - 10:50</td>
+            <td>Історія</td>
+            <td>104</td>
+            <td>Лисенко Л.Л.</td>
+        </tr>
+        <tr>
+            <td>11:00 - 12:20</td>
+            <td>Англійська мова</td>
+            <td>206</td>
+            <td>Гончаренко Г.Г.</td>
+        </tr>
+    </table>
+
+    <div class="day-title">
+        <a name="СР">Середа</a>
+    </div>
+    <table class="schedule-table">
+        <tr>
+            <th>Час</th>
+            <th>Предмет</th>
+            <th>Аудиторія</th>
+            <th>Викладач</th>
+        </tr>
+        <tr>
+            <td>8:00 - 9:20</td>
+            <td>Біологія</td>
+            <td>105</td>
+            <td>Мельник М.М.</td>
+        </tr>
+        <tr>
+            <td>9:30 - 10:50</td>
+            <td>Географія</td>
+            <td>106</td>
+            <td>Олійник О.О.</td>
+        </tr>
+        <tr>
+            <td>11:00 - 12:20</td>
+            <td>Фізкультура</td>
+            <td>Спортзал</td>
+            <td>Бондаренко Б.Б.</td>
+        </tr>
+    </table>
+
+    <div class="day-title">
+        <a name="ЧТ">Четвер</a>
+    </div>
+    <table class="schedule-table">
+        <tr>
+            <th>Час</th>
+            <th>Предмет</th>
+            <th>Аудиторія</th>
+            <th>Викладач</th>
+        </tr>
+        <tr>
+            <td>8:00 - 9:20</td>
+            <td>Економіка</td>
+            <td>107</td>
+            <td>Дмитренко Д.Д.</td>
+        </tr>
+        <tr>
+            <td>9:30 - 10:50</td>
+            <td>Соціологія</td>
+            <td>108</td>
+            <td>Зубенко З.З.</td>
+        </tr>
+        <tr>
+            <td>11:00 - 12:20</td>
+            <td>Філософія</td>
+            <td>207</td>
+            <td>Євтушенко Є.Є.</td>
+        </tr>
+    </table>
+
+    <div class="day-title">
+        <a name="ПТ">П’ятниця</a>
+    </div>
+    <table class="schedule-table">
+        <tr>
+            <th>Час</th>
+            <th>Предмет</th>
+            <th>Аудиторія</th>
+            <th>Викладач</th>
+        </tr>
+        <tr>
+            <td>8:00 - 9:20</td>
+            <td>Література</td>
+            <td>109</td>
+            <td>Ігнатенко І.В.</td>
+        </tr>
+        <tr>
+            <td>9:30 - 10:50</td>
+            <td>Музика</td>
+            <td>110</td>
+            <td>Кириленко К.К.</td>
+        </tr>
+        <tr>
+            <td>11:00 - 12:20</td>
+            <td>Малювання</td>
+            <td>208</td>
+            <td>Лебедєв Л.Л.</td>
+        </tr>
+    </table>
+
+    <div class="day-title">
+        <a name="СБ">Субота</a>
+    </div>
+    <table class="schedule-table">
+        <tr>
+            <th>Час</th>
+            <th>Предмет</th>
+            <th>Аудиторія</th>
+            <th>Викладач</th>
+        </tr>
+        <tr>
+            <td>8:00 - 9:20</td>
+            <td>Інформатика</td>
+            <td>201</td>
+            <td>Мартиненко М.М.</td>
+        </tr>
+        <tr>
+            <td>9:30 - 10:50</td>
+            <td>Трудове навчання</td>
+            <td>202</td>
+            <td>Нечипоренко Н.Н.</td>
+        </tr>
+        <tr>
+            <td>11:00 - 12:20</td>
+            <td>Правознавство</td>
+            <td>209</td>
+            <td>Онопенко О.О.</td>
+        </tr>
+    </table>
+</body>
+</html>

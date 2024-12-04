@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Замовлення товару</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        h2 {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #343a40;
+        }
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .submit-buttons {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Форма замовлення товару</h2>
+
+    <div class="container">
+        <div class="form-container">
+            <form action="TaranLab07-add2.html" method="get">
+                <div class="mb-3">
+                    <label for="account-number" class="form-label">Номер банківського рахунку:</label>
+                    <input type="text" class="form-control" id="account-number" name="account-number" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="user-number" class="form-label">Особистий номер користувача:</label>
+                    <input type="text" class="form-control" id="user-number" name="user-number" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Виберіть товари:</label>
+                    <select class="form-select" name="products" id="products" multiple required>
+                        <option value="Телефон">Телефон</option>
+                        <option value="Ноутбук">Ноутбук</option>
+                        <option value="Планшет">Планшет</option>
+                        <option value="Навушники">Навушники</option>
+                        <option value="Смарт-годинник">Смарт-годинник</option>
+                    </select>
+                    <small class="form-text text-muted">Утримуйте Ctrl (Windows) або Command (Mac), щоб вибрати декілька товарів.</small>
+                </div>
+
+                <div class="mb-3">
+                    <label for="comments" class="form-label">Коментарі:</label>
+                    <textarea class="form-control" name="comments" id="comments" rows="4"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Вид оплати:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="payment-method" id="cash" value="Готівковий" required>
+                        <label class="form-check-label" for="cash">Готівковий</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="payment-method" id="non-cash" value="Безготівковий">
+                        <label class="form-check-label" for="non-cash">Безготівковий</label>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Додаткова інформація:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="additional-info" id="account-balance" value="Залишки на рахунку">
+                        <label class="form-check-label" for="account-balance">Залишки на рахунку</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="additional-info" id="recent-payments" value="Список останніх виплат">
+                        <label class="form-check-label" for="recent-payments">Список останніх виплат по рахунку</label>
+                    </div>
+                </div>
+
+                <div class="submit-buttons">
+                    <button type="submit" class="btn btn-primary">Відіслати замовлення</button>
+                    <button type="reset" class="btn btn-secondary">Очистити форму</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

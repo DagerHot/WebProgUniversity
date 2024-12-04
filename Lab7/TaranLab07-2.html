@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Створіть свого героя</title>
+    <style>
+        body {
+            background-color: #2c3e50;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ecf0f1;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #e74c3c;
+        }
+        form {
+            background-color: #34495e;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        input[type="text"],
+        input[type="password"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #7f8c8d;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #2c3e50;
+        }
+        input[type="file"] {
+            color: #ecf0f1;
+        }
+        textarea {
+            resize: vertical;
+        }
+        .checkbox-group,
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .checkbox-group label,
+        .radio-group label {
+            margin-right: 20px;
+            font-weight: normal;
+        }
+        .button-group {
+            margin-top: 30px;
+            text-align: center;
+        }
+        button {
+            background-color: #e74c3c;
+            color: #ffffff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #c0392b;
+        }
+        #hero-description {
+            margin-top: 40px;
+            background-color: #34495e;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        #hero-description h2 {
+            color: #e74c3c;
+            text-align: center;
+        }
+        #hero-description p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .hero-image {
+            display: block;
+            margin: 20px auto;
+            max-width: 200px;
+            border-radius: 10px;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 10px;
+            }
+            form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Створіть свого героя</h1>
+    <form id="hero-form">
+        <!-- Ім'я героя -->
+        <div class="form-group">
+            <label for="hero-name">Ім'я героя:</label>
+            <input type="text" id="hero-name" name="hero-name" placeholder="Введіть ім'я вашого героя" required>
+        </div>
+
+        <!-- Пароль героя -->
+        <div class="form-group">
+            <label for="hero-password">Секретний пароль героя:</label>
+            <input type="password" id="hero-password" name="hero-password" placeholder="Введіть пароль" required>
+        </div>
+
+        <!-- Опис героя -->
+        <div class="form-group">
+            <label for="hero-description">Опис героя:</label>
+            <textarea id="hero-description-input" name="hero-description" rows="4" placeholder="Розкажіть історію вашого героя"></textarea>
+        </div>
+
+        <!-- Клас героя -->
+        <div class="form-group">
+            <label for="hero-class">Виберіть клас вашого героя:</label>
+            <select id="hero-class" name="hero-class" required>
+                <option value="">-- Виберіть клас --</option>
+                <option value="Воїн">Воїн</option>
+                <option value="Маг">Маг</option>
+                <option value="Лучник">Лучник</option>
+                <option value="Злодій">Злодій</option>
+            </select>
+        </div>
+
+        <!-- Сили героя (Чекбокси) -->
+        <div class="form-group">
+            <label>Сили вашого героя:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="hero-skills" value="Суперсила"> Суперсила</label>
+                <label><input type="checkbox" name="hero-skills" value="Невидимість"> Невидимість</label>
+                <label><input type="checkbox" name="hero-skills" value="Левітація"> Левітація</label>
+                <label><input type="checkbox" name="hero-skills" value="Швидкість"> Швидкість</label>
+            </div>
+        </div>
+
+        <!-- Сторона (Радіокнопки) -->
+        <div class="form-group">
+            <label>Виберіть сторону:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="hero-side" value="Світло" required> Світло</label>
+                <label><input type="radio" name="hero-side" value="Темрява"> Темрява</label>
+            </div>
+        </div>
+
+        <!-- Завантаження аватару -->
+        <div class="form-group">
+            <label for="hero-avatar">Завантажте аватар героя:</label>
+            <input type="file" id="hero-avatar" name="hero-avatar" accept="image/*">
+        </div>
+
+        <!-- Кнопки -->
+        <div class="button-group">
+            <button type="button" onclick="generateHero()">Створити героя</button>
+            <button type="reset">Очистити</button>
+        </div>
+    </form>
+
+    <!-- Відображення результату -->
+    <div id="hero-description" style="display: none;">
+        <h2>Ваш герой:</h2>
+        <img src="" alt="Аватар героя" class="hero-image" id="hero-image">
+        <p id="hero-summary"></p>
+    </div>
+</div>
+
+<script>
+    function generateHero() {
+        const name = document.getElementById('hero-name').value;
+        const password = document.getElementById('hero-password').value;
+        const description = document.getElementById('hero-description-input').value;
+        const heroClass = document.getElementById('hero-class').value;
+        const side = document.querySelector('input[name="hero-side"]:checked').value;
+        const skillsNodes = document.querySelectorAll('input[name="hero-skills"]:checked');
+        const skills = Array.from(skillsNodes).map(el => el.value).join(', ') || 'немає';
+        const avatarInput = document.getElementById('hero-avatar');
+        const avatarFile = avatarInput.files[0];
+
+        if (!name || !password || !heroClass || !side) {
+            alert('Будь ласка, заповніть обов\'язкові поля.');
+            return;
+        }
+
+        // Відображення аватару
+        if (avatarFile) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('hero-image').src = e.target.result;
+            };
+            reader.readAsDataURL(avatarFile);
+        } else {
+            document.getElementById('hero-image').src = '';
+        }
+
+        // Формування опису героя
+        let heroSummary = `<strong>${name}</strong> - це ${heroClass.toLowerCase()}, який стоїть на стороні ${side.toLowerCase()}.`;
+        heroSummary += skills !== 'немає' ? ` Він(Вона) володіє такими силами: ${skills}.` : '';
+        heroSummary += description ? ` Опис героя: ${description}` : '';
+        heroSummary += ` (Секретний пароль: ${'*'.repeat(password.length)})`;
+
+        document.getElementById('hero-summary').innerHTML = heroSummary;
+        document.getElementById('hero-description').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>

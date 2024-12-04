@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Результат форми</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .result-container {
+            max-width: 700px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .result-container h1 {
+            color: #28a745;
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .result-container p {
+            font-size: 18px;
+            color: #343a40;
+        }
+        .back-button {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .back-button button {
+            width: 200px;
+        }
+        .data-list {
+            margin-top: 20px;
+        }
+        .data-list dt {
+            font-weight: bold;
+        }
+        .data-list dd {
+            margin-bottom: 15px;
+        }
+        .section-title {
+            margin-top: 30px;
+            font-size: 24px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="result-container">
+            <h1>Дякуємо!</h1>
+            <p>Ваша форма успішно відправлена. Ось введені вами дані:</p>
+
+            <div id="form-results"></div>
+
+            <div class="back-button">
+                <button class="btn btn-secondary" onclick="goBack()">Назад</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function getParams() {
+            const params = {};
+            const queryString = window.location.search.slice(1);
+            const pairs = queryString.split('&');
+            for (let pair of pairs) {
+                const [key, value] = pair.split('=');
+                const decodedKey = decodeURIComponent(key);
+                const decodedValue = decodeURIComponent(value).replace(/\+/g, ' ');
+                if (params[decodedKey]) {
+                    // Якщо ключ вже існує, перетворюємо значення в масив
+                    if (Array.isArray(params[decodedKey])) {
+                        params[decodedKey].push(decodedValue);
+                    } else {
+                        params[decodedKey] = [params[decodedKey], decodedValue];
+                    }
+                } else {
+                    params[decodedKey] = decodedValue;
+                }
+            }
+            return params;
+        }
+
+        function displayResults() {
+            const params = getParams();
+            const formResults = document.getElementById('form-results');
+
+            if (params['name'] || params['hero-name']) {
+                formResults.innerHTML = '<p>Дані з вашої форми відображаються тут.</p>';
+            } else if (params['account-number']) {
+                const dl = document.createElement('dl');
+                dl.className = 'data-list';
+
+                const accountNumber = params['account-number'] || 'Не вказано';
+                dl.innerHTML += '<dt>Номер банківського рахунку:</dt><dd>' + accountNumber + '</dd>';
+
+                const userNumber = params['user-number'] || 'Не вказано';
+                dl.innerHTML += '<dt>Особистий номер користувача:</dt><dd>' + userNumber + '</dd>';
+
+                const products = params['products'];
+                if (products) {
+                    if (Array.isArray(products)) {
+                        dl.innerHTML += '<dt>Вибрані товари:</dt><dd>' + products.join(', ') + '</dd>';
+                    } else {
+                        dl.innerHTML += '<dt>Вибрані товари:</dt><dd>' + products + '</dd>';
+                    }
+                } else {
+                    dl.innerHTML += '<dt>Вибрані товари:</dt><dd>Не вибрано</dd>';
+                }
+
+                const comments = params['comments'] || 'Немає';
+                dl.innerHTML += '<dt>Коментарі:</dt><dd>' + comments + '</dd>';
+
+                const paymentMethod = params['payment-method'] || 'Не вказано';
+                dl.innerHTML += '<dt>Вид оплати:</dt><dd>' + paymentMethod + '</dd>';
+
+                const additionalInfo = params['additional-info'];
+                if (additionalInfo) {
+                    if (Array.isArray(additionalInfo)) {
+                        dl.innerHTML += '<dt>Додаткова інформація:</dt><dd>' + additionalInfo.join(', ') + '</dd>';
+                    } else {
+                        dl.innerHTML += '<dt>Додаткова інформація:</dt><dd>' + additionalInfo + '</dd>';
+                    }
+                } else {
+                    dl.innerHTML += '<dt>Додаткова інформація:</dt><dd>Не вибрано</dd>';
+                }
+
+                formResults.appendChild(dl);
+            } else {
+                formResults.innerHTML = '<p>Дані не були отримані.</p>';
+            }
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+
+        displayResults();
+    </script>
+</body>
+</html>

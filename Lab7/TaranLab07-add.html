@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Результат форми</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .result-container {
+            max-width: 700px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .result-container h1 {
+            color: #28a745;
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .result-container p {
+            font-size: 18px;
+            color: #343a40;
+        }
+        .back-button {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .back-button button {
+            width: 200px;
+        }
+        .data-list {
+            margin-top: 20px;
+        }
+        .data-list dt {
+            font-weight: bold;
+        }
+        .data-list dd {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="result-container">
+            <h1>Дякуємо!</h1>
+            <p>Ваша форма успішно відправлена. Ось введені вами дані:</p>
+
+            <dl class="data-list">
+                <dt>Ваше ім'я:</dt>
+                <dd id="result-name"></dd>
+
+                <dt>Ваша стать:</dt>
+                <dd id="result-pol"></dd>
+
+                <dt>Курс навчання:</dt>
+                <dd id="result-curs"></dd>
+
+                <dt>Дисципліни:</dt>
+                <dd id="result-disciplines"></dd>
+
+                <dt>Про себе:</dt>
+                <dd id="result-about"></dd>
+            </dl>
+
+            <!-- Кнопка "Назад" -->
+            <div class="back-button">
+                <button class="btn btn-secondary" onclick="goBack()">Назад</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function getParams() {
+            const params = {};
+            const queryString = window.location.search.slice(1);
+            const pairs = queryString.split('&');
+            for (let pair of pairs) {
+                const [key, value] = pair.split('=');
+                const decodedKey = decodeURIComponent(key);
+                const decodedValue = decodeURIComponent(value).replace(/\+/g, ' ');
+                if (params[decodedKey]) {
+                    if (Array.isArray(params[decodedKey])) {
+                        params[decodedKey].push(decodedValue);
+                    } else {
+                        params[decodedKey] = [params[decodedKey], decodedValue];
+                    }
+                } else {
+                    params[decodedKey] = decodedValue;
+                }
+            }
+            return params;
+        }
+
+        const params = getParams();
+
+        document.getElementById('result-name').textContent = params['name'] || 'Не вказано';
+        document.getElementById('result-pol').textContent = params['pol'] || 'Не вказано';
+        document.getElementById('result-curs').textContent = params['curs'] || 'Не вказано';
+
+        const disciplines = params['disciplines'];
+        if (disciplines) {
+            if (Array.isArray(disciplines)) {
+                document.getElementById('result-disciplines').textContent = disciplines.join(', ');
+            } else {
+                document.getElementById('result-disciplines').textContent = disciplines;
+            }
+        } else {
+            document.getElementById('result-disciplines').textContent = 'Не вибрано';
+        }
+
+        document.getElementById('result-about').textContent = params['about'] || 'Не вказано';
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
